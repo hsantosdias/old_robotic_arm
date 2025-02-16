@@ -4,8 +4,13 @@
 
 Os arquivos contém um conjunto de classes Java utilizadas  para a simulação gráfica de um braço  robótico em um  ambiente de Applet versão legada.
 
+**Versão de teste: jdk-7u80-windows-i586.exe**
+
 O código foi desenvolvido como parte de um projeto acadêmico na  **Universidade Estadual do Sudoeste da Bahia (UESB)** , especificamente para a disciplina de  **Computação Gráfica - Prova da Terceira - Unidade de Computação Gráfica por Hugo Santos Dias e a participação especial de Bruno Boa Ventura**. Professor: Bruno Silvério Costa
 
+[![Visão do Braço Robotico](imgs/view01.png "Visão do Braço Robotico")](https://github.com/hsantosdias/old_robotic_arm/blob/main/imgs/view01.png?raw=true "Visão do Braço Robotico")
+
+[![Visão do Inferior do Braço Robotico](imgs/view03.png "Visão do Inferior do Braço Robotico")](https://github.com/hsantosdias/old_robotic_arm/blob/main/imgs/view03.png?raw=true "Visão do Inferior do Braço Robotico")
 
 ## **Pequeno tutorial sobre o fontes do Braço Robô (Arm Robot)**
 
@@ -50,6 +55,8 @@ O código foi desenvolvido como parte de um projeto acadêmico na  **Universidad
 * **Threading** para atualização contínua da simulação.
 
 O código utiliza  **Java Applet** , que foi  **removido a  partir do Java 17** . Para rodá-lo em versões mais  recentes, você precisará **remover a dependência de  Applet** e migrar para uma biblioteca gráfica moderna, como  **JavaFX** ou **Swing** .
+
+
 
 # Passos para rodar o código em versões recentes do Java
 
