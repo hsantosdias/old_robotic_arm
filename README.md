@@ -194,4 +194,4 @@ Para rodar esse código em  **Java 17+** , você precisa:
 * Usar bibliotecas modernas para gráficos (**JavaFX** ou  **JOGL** ).
 * Implementar corretamente os comandos de controle.
 
-Se quiser, posso atualizar o código completo para  **JFrame** . Me avise!
+Se quiser, pode atualizar o código completo para **JFrame** . Me avise!
