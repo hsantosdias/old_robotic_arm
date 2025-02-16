@@ -6,7 +6,6 @@ Os arquivos contém um conjunto de classes Java utilizadas  para a simulação g
 
 O código foi desenvolvido como parte de um projeto acadêmico na  **Universidade Estadual do Sudoeste da Bahia (UESB)** , especificamente para a disciplina de  **Computação Gráfica por Hugo Santos Dias e a participação especial de Bruno Boa Ventura**. Professor: Bruno Silvério Costa
 
-
 ### **Prova da Terceira - Unidade de Computação Gráfica**
 
 ## **Pequeno tutorial sobre o fontes do Braço Robô (Arm Robot)**
@@ -55,7 +54,7 @@ O código utiliza  **Java Applet** , que foi  **removido a  partir do Java 17** 
 
 ## **Teclas de atalho e movimentação do braço e da  viewport:**
 
-*public static final int 1006: //**left** “movimentar para  a esquerda”*
+public static final int 1006: //**left** “movimentar para  a esquerda”
 *public static final int 1007: //**rigth** “movimentar para a direita”*
 
 *public static final int 1000: //**home** “movimenta o ”*
@@ -64,20 +63,19 @@ O código utiliza  **Java Applet** , que foi  **removido a  partir do Java 17** 
 *public static final int 1005: //**LOST_FOCUS***
 *public static final int 1004: //**GO T_FOCUS***
 
+*public static final int 1002: //**PGUP** “levanta o  braço”*
+*public static final int 1003: //**PGDN** “abaixa o braço”*
 
-*public static final int 1002: //**PGUP** “levanta o  braço”* 
-*public static final int 1003: //**PGDN** “abaixa o braço”* 
-
-*public static final int 42: // 'x' “abre a pinça”* 
-*public static final int 47: // '**/**' “fecha a pinça”* 
-*public static final int 54: // '**6**' gira em torno de y* 
-*public static final int 52: // '**4**' gira em torno de y* 
-*public static final int 50: // '**2**' gira em torno de x* 
-*public static final int 56: // '**8**' gira em torno de x* 
-*public static final int 57: // '**9**' gira em torno de z* 
-*public static final int 51: // '**3**' gira em torno de z* 
-*public static final int 55: // '**7**' “diminui o zoom”* 
-*public static final int 49: // '**1**' “aumenta o zoom”* 
+*public static final int 42: // 'x' “abre a pinça”*
+*public static final int 47: // '**/**' “fecha a pinça”*
+*public static final int 54: // '**6**' gira em torno de y*
+*public static final int 52: // '**4**' gira em torno de y*
+*public static final int 50: // '**2**' gira em torno de x*
+*public static final int 56: // '**8**' gira em torno de x*
+*public static final int 57: // '**9**' gira em torno de z*
+*public static final int 51: // '**3**' gira em torno de z*
+*public static final int 55: // '**7**' “diminui o zoom”*
+*public static final int 49: // '**1**' “aumenta o zoom”*
 
 *public static final int 1008: //**F1** “visão do view por  baixo”*
 *public static final int 1009: //**F2** “visão do view por  cima”*
