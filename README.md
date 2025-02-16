@@ -1,12 +1,11 @@
-# old_robotic_arm
+# Braço Robô (Arm Robot)
 
-##Braço Robotico em 3D construido em Java old version
+## Braço Robotico em 3D construido em Java old version
 
 Os arquivos contém um conjunto de classes Java utilizadas  para a simulação gráfica de um braço  robótico em um  ambiente de Applet versão legada.
 
-O código foi desenvolvido como parte de um projeto acadêmico na  **Universidade Estadual do Sudoeste da Bahia (UESB)** , especificamente para a disciplina de  **Computação Gráfica por Hugo Santos Dias e a participação especial de Bruno Boa Ventura**. Professor: Bruno Silvério Costa
+O código foi desenvolvido como parte de um projeto acadêmico na  **Universidade Estadual do Sudoeste da Bahia (UESB)** , especificamente para a disciplina de  **Computação Gráfica - Prova da Terceira - Unidade de Computação Gráfica por Hugo Santos Dias e a participação especial de Bruno Boa Ventura**. Professor: Bruno Silvério Costa
 
-### **Prova da Terceira - Unidade de Computação Gráfica**
 
 ## **Pequeno tutorial sobre o fontes do Braço Robô (Arm Robot)**
 
@@ -52,53 +51,147 @@ O código foi desenvolvido como parte de um projeto acadêmico na  **Universidad
 
 O código utiliza  **Java Applet** , que foi  **removido a  partir do Java 17** . Para rodá-lo em versões mais  recentes, você precisará **remover a dependência de  Applet** e migrar para uma biblioteca gráfica moderna, como  **JavaFX** ou **Swing** .
 
-## **Teclas de atalho e movimentação do braço e da  viewport:**
+# Passos para rodar o código em versões recentes do Java
 
-public static final int 1006: //**left** “movimentar para  a esquerda”
-*public static final int 1007: //**rigth** “movimentar para a direita”*
+## 1. Remover a Dependência de Applet
 
-*public static final int 1000: //**home** “movimenta o ”*
+O código atual usa:
 
-*public static final int 1001: //**ACTION_EVENT***
+```java
+import java.applet.Applet;
 
-*public static final int 1005: //**LOST_FOCUS***
+public class Robot extends Applet implements Runnable
+```
 
-*public static final int 1004: //**GO T_FOCUS***
+Isso precisa ser substituído por uma classe com **JFrame** ou  **JavaFX** .
 
-*public static final int 1002: //**PGUP** “levanta o  braço”*
+---
 
-*public static final int 1003: //**PGDN** “abaixa o braço”*
+## 2. Migrar para JFrame (Swing)
 
-*public static final int 42: // 'x' “abre a pinça”*
+* Substituir **Applet** por  **JFrame** .
+* Criar um **JPanel** para desenhar o robô.
+* Utilizar `paintComponent(Graphics g)` no lugar de `paint(Graphics g)`.
 
-*public static final int 47: // '**/**' “fecha a pinça”*
+### Exemplo de código atualizado usando JFrame:
 
-*public static final int 54: // '**6**' gira em torno de y*
+```java
+import javax.swing.*;
+import java.awt.*;
 
-*public static final int 52: // '**4**' gira em torno de y*
+public class RobotFrame extends JFrame {
+    public RobotFrame() {
+        setTitle("Braço Robótico");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(new RobotPanel());
+        setVisible(true);
+    }
 
-*public static final int 50: // '**2**' gira em torno de x*
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(RobotFrame::new);
+    }
+}
 
-*public static final int 56: // '**8**' gira em torno de x*
+class RobotPanel extends JPanel {
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawString("Universidade Estadual do Sudoeste da Bahia", 90, 20);
+        g.drawString("Braço Robótico", 90, 50);
+        // Aqui você pode chamar os métodos de renderização do robô
+    }
+}
+```
 
-*public static final int 57: // '**9**' gira em torno de z*
+---
 
-*public static final int 51: // '**3**' gira em torno de z*
+## 3. Substituir Métodos Obsoletos
 
-*public static final int 55: // '**7**' “diminui o zoom”*
+O código usa `size().width` e `size().height`, que eram comuns em  **Applets** .
 
-*public static final int 49: // '**1**' “aumenta o zoom”*
+Agora, use `getWidth()` e `getHeight()` dentro do  **JPanel** .
 
-*public static final int 1008: //**F1** “visão do view por  baixo”*
+### Exemplo:
 
-*public static final int 1009: //**F2** “visão do view por  cima”*
+```java
+int appletWidth = getWidth();
+int appletHeight = getHeight();
+```
 
-*public static final int 1010: //**F3** “visão do view pela  diagonal – por cima”*
+---
 
-*public static final int 1011: //**F4** “visão do view pela  diagonal – por baixo”*
+## 4. Gerenciar Threads Corretamente
 
-*public static final int 1012: //**F5** “visão do view  original do ponto 0,0,0”*
+O código atual usa:
 
-*public static final int 1012: //**F6** “giro sobre x”*
+```java
+ligar = new Thread(this);
+ligar.start();
+```
 
-*public static final int 1012: //**F7** “visão do view por cima e na diagonal”*
+Mas o método `stop()` da **Thread** foi removido.
+
+Agora, use **ScheduledExecutorService** para melhor controle de execução contínua.
+
+### Exemplo:
+
+```java
+ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+executor.scheduleAtFixedRate(() -> repaint(), 0, 16, TimeUnit.MILLISECONDS);
+```
+
+---
+
+## 5. Manter Transformações 3D
+
+* Você pode manter a lógica da `Matrix.java` para transformações  **3D** .
+* Alternativas modernas:
+  * **JavaFX** (melhor para gráficos 3D).
+  * **JOGL** (Java OpenGL) se quiser alto desempenho.
+
+---
+
+## 6. Mapeamento de Comandos e  t**eclas de atalho e movimentação do braço e da  viewport:**
+
+```java
+public static final int 1006 = "Movimentar para a esquerda";
+public static final int 1007 = "Movimentar para a direita";
+public static final int 1000 = "Movimenta o home";
+public static final int 1001 = "ACTION_EVENT";
+public static final int 1005 = "LOST_FOCUS";
+public static final int 1004 = "GO_T_FOCUS";
+public static final int 1002 = "Levanta o braço";
+public static final int 1003 = "Abaixa o braço";
+public static final int 42 = "Abre a pinça";
+public static final int 47 = "Fecha a pinça";
+public static final int 54 = "Gira em torno de Y (tecla 6)";
+public static final int 52 = "Gira em torno de Y (tecla 4)";
+public static final int 50 = "Gira em torno de X (tecla 2)";
+public static final int 56 = "Gira em torno de X (tecla 8)";
+public static final int 57 = "Gira em torno de Z (tecla 9)";
+public static final int 51 = "Gira em torno de Z (tecla 3)";
+public static final int 55 = "Diminui o zoom (tecla 7)";
+public static final int 49 = "Aumenta o zoom (tecla 1)";
+public static final int 1008 = "Visão do view por baixo (F1)";
+public static final int 1009 = "Visão do view por cima (F2)";
+public static final int 1010 = "Visão do view pela diagonal – por cima (F3)";
+public static final int 1011 = "Visão do view pela diagonal – por baixo (F4)";
+public static final int 1012 = "Visão do view original do ponto 0,0,0 (F5)";
+public static final int 1013 = "Giro sobre X (F6)";
+public static final int 1014 = "Visão do view por cima e na diagonal (F7)";
+```
+
+---
+
+## Conclusão
+
+Para rodar esse código em  **Java 17+** , você precisa:
+
+* Remover **Applet** e usar  **JFrame** .
+* Substituir `size()` por `getWidth()/getHeight()`.
+* Gerenciar **Threads** corretamente.
+* Usar bibliotecas modernas para gráficos (**JavaFX** ou  **JOGL** ).
+* Implementar corretamente os comandos de controle.
+
+Se quiser, posso atualizar o código completo para  **JFrame** . Me avise!
