@@ -55,8 +55,8 @@ O código utiliza  **Java Applet** , que foi  **removido a  partir do Java 17** 
 
 ## **Teclas de atalho e movimentação do braço e da  viewport:**
 
-*public static final int 1006: //**left** “movimentar para  a esquerda”
-*public static final int 1007: //**rigth** “movimentar para a direita”**
+*public static final int 1006: //**left** “movimentar para  a esquerda”*
+*public static final int 1007: //**rigth** “movimentar para a direita”*
 
 *public static final int 1000: //**home** “movimenta o ”*
 
@@ -68,7 +68,7 @@ O código utiliza  **Java Applet** , que foi  **removido a  partir do Java 17** 
 *public static final int 1002: //**PGUP** “levanta o  braço”* 
 *public static final int 1003: //**PGDN** “abaixa o braço”* 
 
-*public static final int 42: // '*' “abre a pinça”* 
+*public static final int 42: // 'x' “abre a pinça”* 
 *public static final int 47: // '**/**' “fecha a pinça”* 
 *public static final int 54: // '**6**' gira em torno de y* 
 *public static final int 52: // '**4**' gira em torno de y* 
