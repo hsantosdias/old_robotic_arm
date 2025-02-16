@@ -4,7 +4,8 @@ Braço Robotico em 3D construido em Java old version
 
 Os arquivos contém um conjunto de classes Java utilizadas para a simulação gráfica de um braço  robótico em um ambiente de Applet versão legada.
 
-O código foi desenvolvido como parte de um projeto acadêmico na  **Universidade Estadual do Sudoeste da Bahia (UESB)** , especificamente para a disciplina de  **Computação Gráfica por Hugo Santos Dias e a participação especial de Bruno Boa Ventura**.
+O código foi desenvolvido como parte de um projeto acadêmico na  **Universidade Estadual do Sudoeste da Bahia (UESB)** , especificamente para a disciplina de  **Computação Gráfica por Hugo Santos Dias e a participação especial de Bruno Boa Ventura**. Professor: Bruno Silvério Costa
+
 
 ### **Prova da Terceira - Unidade de Computação Gráfica**
 
